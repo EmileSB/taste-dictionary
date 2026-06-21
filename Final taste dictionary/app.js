@@ -293,7 +293,7 @@
       relations: {
         syn: { term: "ほろ苦い", rj: "horonigai", gloss: "Slightly bitter." },
         ant: { term: "甘い", rj: "amai", gloss: "Sweet; the common taste contrast with bitter." },
-        idiom: { term: "苦い顔をする", rj: "nigai kao o suru", lit: "to make a bitter face", gloss: "To show unpleasant feelings by making a bitter face." },
+        idiom: { term: "苦い顔をする", rj: "nigai kao o suru", lit: "to make a bitter face", gloss: "To make a displeased face." },
         extra: [
           { kind: "Scientific taste noun", term: "苦味", rj: "nigami", lit: "bitterness", gloss: "Bitterness; the scientific noun for the bitter taste." },
         ],
