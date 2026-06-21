@@ -227,7 +227,6 @@
             { jp: "酸っぱい匂（にお）いがする。", en: "It smells sour." },
             { jp: "酸っぱい汗（あせ）のにおい。", en: "A sour smell of sweat." },
             { jp: "この牛乳（ぎゅうにゅう）は酸っぱいです。", en: "This milk tastes sour; it has spoiled." },
-            { jp: "タオルが酸っぱくなっている。", en: "The towel has become sour-smelling." },
           ],
         },
       ],
@@ -281,7 +280,7 @@
           body: "A feeling that is sad, disappointing, regrettable, harsh, or bittersweet.",
           examples: [
             { jp: "ほろ苦い恋（こい）。", en: "A bittersweet romance." },
-            { jp: "苦い気持（きも）ちの一日でした。", en: "It was a day filled with bitter feelings." },
+            { jp: "苦い一日（いちにち）でした。", en: "It was a bitter day." },
           ],
         },
       ],
@@ -294,7 +293,7 @@
       relations: {
         syn: { term: "ほろ苦い", rj: "horonigai", gloss: "Slightly bitter." },
         ant: { term: "甘い", rj: "amai", gloss: "Sweet; the common taste contrast with bitter." },
-        idiom: { term: "苦い顔をする", rj: "nigai kao o suru", lit: "to make a bitter face", gloss: "To show unpleasant feelings by making a sour face." },
+        idiom: { term: "苦い顔をする", rj: "nigai kao o suru", lit: "to make a bitter face", gloss: "To show unpleasant feelings by making a bitter face." },
         extra: [
           { kind: "Scientific taste noun", term: "苦味", rj: "nigami", lit: "bitterness", gloss: "Bitterness; the scientific noun for the bitter taste." },
         ],
@@ -315,7 +314,7 @@
         examples: [
           { jp: "このラーメンは少（すこ）し塩辛い。", en: "This ramen is a little too salty." },
           { jp: "塩辛い魚（さかな）は食（た）べにくい。", en: "Overly salty fish is hard to eat." },
-          { jp: "塩辛さのある味（あじ）。", en: "A taste of saltiness." },
+          { jp: "塩辛い味（あじ）。", en: "A salty taste." },
         ],
         pills: [["Dictionary", "塩辛い (しおからい)"], ["Pronunciation", "shiokarai"], ["Meaning", "salty; containing a lot of salt"]],
       },
