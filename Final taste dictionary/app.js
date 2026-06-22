@@ -483,6 +483,7 @@
     romaji: "umai",
     pos: "い-adjective",
     related: true,
+    searchOrigin: "umami",
     kanji: { char: "旨", on: "シ", kun: "うま (い)", strokes: 6, radical: "日", radicalMeaning: "sun" },
     m1: {
       lede: "Food or drink tastes good or delicious; equivalent to 美味しい（おいしい）.",
@@ -1075,8 +1076,8 @@
         <div class="wrap results-head__inner">
           <div>
             <span class="eyebrow">Search results</span>
-            <h2 id="resultsTitle">Choose a taste</h2>
-            <p id="resultsSummary">Type in the search field to open a taste page.</p>
+            <h2 id="resultsTitle">Choose an entry</h2>
+            <p id="resultsSummary">Type in the search field to open a dictionary page.</p>
           </div>
           <button class="results-head__clear" type="button" id="resultsClear">
             <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M18 6 6 18M6 6l12 12"/></svg>
@@ -1205,8 +1206,8 @@
   }
 
   /* ============================================================== SEARCH
-     A dictionary lookup for the home page: type any of the five words (in
-     English, kana, kanji or romaji) and the definition pops up as a card,
+     A dictionary lookup for the home page: type a taste or searchable linked
+     entry in English, kana, kanji or romaji and its definition appears,
      with a link down to the full entry. Forgiving aliases ("salt", "savory"…)
      keep it feeling like a real dictionary. Combobox keyboard model. */
   function initSearch() {
@@ -1227,12 +1228,14 @@
       bitter: ["bitter", "nigai"],
       salty:  ["salty", "salt", "salted", "saline", "shiokarai", "shoppai", "shio", "塩辛い", "しょっぱい", "塩"],
       umami:  ["umami", "savory", "savoury", "savouriness", "umami taste", "うまみ", "旨み", "旨味"],
+      umai:   ["umai", "うまい", "旨い", "上手い", "delicious", "tasty", "skillful", "skilful", "talented", "clever"],
     };
+    const SEARCHABLE_ENTRIES = [...TASTES, UMAI_ENTRY];
 
     const norm = (s) => String(s).toLowerCase().normalize("NFKD").replace(/[\u0300-\u036f]/g, "").trim();
 
-    // searchable token list per taste
-    const index = TASTES.map((t) => {
+    // searchable token list per dictionary entry
+    const index = SEARCHABLE_ENTRIES.map((t) => {
       const tokens = new Set([t.en, t.jp, t.reading, t.romaji, t.kanji.char, ...(ALIASES[t.id] || [])]);
       t.en.split(/\s+/).forEach((w) => tokens.add(w));
       return { t, tokens: [...tokens] };
@@ -1301,7 +1304,7 @@
 
     const emptyHTML = (q) => `
       <div class="search__empty">
-        <p>No taste called &ldquo;${esc(q)}&rdquo; — there are only five.</p>
+        <p>No dictionary entry found for &ldquo;${esc(q)}&rdquo;.</p>
         <div class="search__empty-row">
           ${TASTES.map((t) => `<button type="button" class="qchip" data-taste="${t.id}" data-id="${t.id}"><b lang="ja">${esc(t.kanji.char)}</b><span>${esc(t.en)}</span></button>`).join("")}
         </div>
@@ -1340,18 +1343,31 @@
       });
       RELATED_ENTRIES.forEach((entry) => {
         const relatedSection = document.getElementById(entry.id);
-        if (relatedSection) relatedSection.hidden = true;
+        if (!relatedSection) return;
+        const isResult = hasQuery && results.some((r) => r.id === entry.id);
+        relatedSection.hidden = !isResult;
+        if (isResult && entry.searchOrigin) {
+          const origin = TASTES.find((taste) => taste.id === entry.searchOrigin);
+          const back = relatedSection.querySelector(".related-back");
+          if (origin && back) {
+            back.href = `#${origin.id}`;
+            back.dataset.jump = origin.id;
+            back.textContent = `← Back to ${origin.en} · ${origin.jp}`;
+          }
+        }
       });
 
       if (!resultsTitle || !resultsSummary) return;
       if (!hasQuery) {
-        resultsTitle.textContent = "Choose a taste";
-        resultsSummary.textContent = "Type in the search field to open a taste page.";
+        resultsTitle.textContent = "Choose an entry";
+        resultsSummary.textContent = "Type in the search field to open a dictionary page.";
       } else if (results.length === 0) {
-        resultsTitle.textContent = "No taste found";
-        resultsSummary.textContent = `No taste called "${q}". Try sweet, sour, bitter, salty or umami.`;
+        resultsTitle.textContent = "No entry found";
+        resultsSummary.textContent = `No dictionary entry found for "${q}". Try sweet, sour, bitter, salty, umami or うまい.`;
       } else {
-        resultsTitle.textContent = `${results.length} ${results.length === 1 ? "taste" : "tastes"} found`;
+        const tasteOnly = results.every((result) => TASTES.some((taste) => taste.id === result.id));
+        const label = tasteOnly ? (results.length === 1 ? "taste" : "tastes") : (results.length === 1 ? "entry" : "entries");
+        resultsTitle.textContent = `${results.length} ${label} found`;
         resultsSummary.textContent = results.map((t) => `${t.en} (${t.jp})`).join(", ");
       }
     }
@@ -1387,20 +1403,20 @@
     }
 
     function showCard(id) {
-      const t = TASTES.find((x) => x.id === id);
+      const t = SEARCHABLE_ENTRIES.find((x) => x.id === id);
       if (!t) return;
-      input.value = t.en;
+      input.value = t.id === "umai" ? t.reading : t.en;
       clearBtn.hidden = false;
       updateResults(input.value, true);
       close();
     }
 
     function jumpTo(id) {
-      const t = TASTES.find((x) => x.id === id);
+      const t = SEARCHABLE_ENTRIES.find((x) => x.id === id);
       const sec = document.getElementById(id);
       close();
       if (!t || !sec) return;
-      input.value = t.en;
+      input.value = t.id === "umai" ? t.reading : t.en;
       clearBtn.hidden = false;
       setPageResults([t], t.en);
       sec.hidden = false;

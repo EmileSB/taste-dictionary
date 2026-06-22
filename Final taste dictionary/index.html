@@ -19,16 +19,16 @@
   <div class="hero__bg" aria-hidden="true"><div class="hero__watermark">味</div></div>
   <div class="wrap">
     <h1 class="reveal">A field guide to the <em>five</em> things the <span class="jp">舌</span> can taste.</h1>
-    <p class="hero__lead reveal" data-d="1">Search sweet, sour, bitter, salty or umami to open the matching taste page.</p>
+    <p class="hero__lead reveal" data-d="1">Search sweet, sour, bitter, salty, umami or a linked Japanese entry.</p>
 
     <!-- ====================================================== SEARCH -->
     <div class="search reveal" data-d="2" id="search">
       <form class="search__bar" role="search" autocomplete="off">
         <svg class="search__icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="11" cy="11" r="7"/><path d="m21 21-4.35-4.35"/></svg>
         <input id="searchInput" class="search__input" type="search"
-               placeholder="Look up a taste — &ldquo;sweet&rdquo;, 甘い, 塩辛い…"
+               placeholder="Look up a taste or word — &ldquo;sweet&rdquo;, 甘い, うまい…"
                role="combobox" aria-expanded="false" aria-controls="searchPanel"
-               aria-autocomplete="list" aria-label="Search the five tastes" spellcheck="false" />
+               aria-autocomplete="list" aria-label="Search the taste dictionary" spellcheck="false" />
         <button type="button" class="search__clear" id="searchClear" aria-label="Clear search" hidden>
           <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M18 6 6 18M6 6l12 12"/></svg>
         </button>
@@ -70,7 +70,7 @@
 <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/ScrollTrigger.min.js"></script>
 <!-- app.js first so entries render immediately, before the heavier tongue
      assets download (deferred scripts run in document order). -->
-<script src="app.js?v=umai-entry" defer></script>
+<script src="app.js?v=searchable-umai" defer></script>
 <!-- Three.js r136 — the last UMD (non-module) build, so the interactive tongue
      loads from file:// with no server, exactly like the GSAP scripts above. -->
 <script src="https://unpkg.com/three@0.136.0/build/three.min.js" defer></script>
