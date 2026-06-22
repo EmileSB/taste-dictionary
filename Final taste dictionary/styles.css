@@ -526,6 +526,14 @@ body:not(.has-matches) .foot { display: none; }
 }
 .sense .ex .jp { font-family: var(--font-jp); font-size: 1.05rem; font-weight: 600; color: var(--ink); line-height: 1.45; }
 .sense .ex .en { display: block; margin-top: 0.35rem; color: var(--ink-soft); font-style: italic; font-size: 0.85rem; }
+.example-note {
+  margin-top: 0.75rem; padding-top: 0.7rem; border-top: 1px solid var(--hairline-soft);
+  color: var(--ink-soft); font-size: 0.82rem; line-height: 1.55;
+}
+.example-note span {
+  display: inline-block; margin-right: 0.6rem; font-family: var(--font-mono);
+  font-size: 0.58rem; letter-spacing: 0.12em; text-transform: uppercase; color: var(--accent);
+}
 .sense--careful {
   border-color: var(--accent-line);
   background: color-mix(in srgb, var(--accent-tint) 58%, var(--paper-card));
@@ -559,6 +567,11 @@ body:not(.has-matches) .foot { display: none; }
 }
 .word-writing__head h4 span { font-family: var(--font-jp); color: var(--accent); }
 .word-writing__stack { display: flex; flex-direction: column; gap: clamp(2.5rem, 6vw, 4rem); }
+.custom-writing-stack { display: flex; flex-direction: column; gap: clamp(3rem, 7vw, 5rem); }
+.custom-writing-stack .word-writing { margin-block: 0; }
+.custom-writing-stack .word-writing + .word-writing {
+  padding-top: clamp(2.5rem, 6vw, 4rem); border-top: 1px solid var(--hairline);
+}
 
 .palate-under-meaning {
   width: min(100%, 920px);

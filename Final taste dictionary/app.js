@@ -136,6 +136,24 @@
       "M55.38,72c4.21,2.92,19.04,14.22,26.22,19.23c2.4,1.68,4.28,2.9,7.16,3.65",
     ]},
   ];
+  WORD_STROKES.umaiSavory = [
+    { char: "旨", strokes: KANJI.umami.strokes },
+    { char: "い", strokes: WORD_STROKES.amaiKotoba[1].strokes },
+  ];
+  WORD_STROKES.umaiSkillful = [
+    { char: "上", strokes: [
+      "M52.31,15.88c1.15,1.15,2.01,3.12,2.01,5.12c0,0.82-0.22,63.62-0.25,64.63",
+      "M58,44.75c7-0.62,14.25-2.5,17.75-3c1.38-0.2,3.5-0.38,4.75,0",
+      "M13.38,88.28c3.6,1.15,7.45,0.62,11.13,0.34c16.23-1.23,41.16-2.66,60.24-2.92c3.65-0.05,7.47-0.32,11,0.82",
+    ]},
+    { char: "手", strokes: [
+      "M61.48,11.5c0.02,1-0.61,1.88-1.67,2.9c-3.27,3.15-13.69,8.23-28.57,11.85",
+      "M26.38,42.92c1.8,0.46,3.61,0.67,5.68,0.38C46,41.38,58.4,39,71.37,37.75c1.92-0.19,4.62-0.38,7.25,0.04",
+      "M13.27,62.87c2.71,0.63,4.86,0.6,7.22,0.38c22.63-2.12,46.13-5.62,67.7-7c2.01-0.13,4.83,0,7.46,0.37",
+      "M48.88,23.55C60.38,31,62.73,63.66,57.83,89.87c-2.08,11.13-8.64,2.34-9.89,1.17",
+    ]},
+    { char: "い", strokes: WORD_STROKES.amaiKotoba[1].strokes },
+  ];
 
   /* --------------------------------------------------------------- DATA */
   const TASTES = [
@@ -373,6 +391,9 @@
         syn: { kind: "Everyday spelling", term: "旨み", rj: "umami", gloss: "Everyday spelling for savory richness or delicious flavor." },
         ant: { kind: "Food science", term: "うま味", rj: "umami", gloss: "Food-science spelling for the fifth basic taste." },
         idiom: { kind: "Scientific taste noun", term: "旨味", rj: "umami", lit: "umami", gloss: "Umami; the scientific noun for the savory taste." },
+        extra: [
+          { kind: "Related adjective", term: "旨い・上手い", rj: "うまい · umai", lit: "delicious · skillful", gloss: "Delicious, skillful, clever, or going well depending on context.", linkedEntry: "umai" },
+        ],
       },
     },
   ];
@@ -454,7 +475,68 @@
     ],
   };
 
-  const RELATED_ENTRIES = [KARAI_ENTRY, AMAI_KOTOBA_ENTRY];
+  const UMAI_ENTRY = {
+    id: "umai",
+    en: "Delicious / Skillful",
+    jp: "旨い・上手い",
+    reading: "うまい",
+    romaji: "umai",
+    pos: "い-adjective",
+    related: true,
+    kanji: { char: "旨", on: "シ", kun: "うま (い)", strokes: 6, radical: "日", radicalMeaning: "sun" },
+    m1: {
+      lede: "Food or drink tastes good or delicious; equivalent to 美味しい（おいしい）.",
+      examples: [
+        { jp: "今日（きょう）のごはんは、旨（うま）かった。", en: "Today's meal was delicious.", note: "ごはん does not only mean white rice; it can also mean a meal." },
+        { jp: "旨（うま）いラーメンを食（た）べましょう。", en: "Let's eat a delicious ramen." },
+      ],
+      pills: [["Dictionary", "旨い・上手い (うまい)"], ["Pronunciation", "umai"], ["Synonym", "美味しい (おいしい)"]],
+    },
+    senses: [
+      {
+        n: "2",
+        title: "Skillful · talented",
+        body: "Being good at something; skillful or talented. In this meaning, うまい is equivalent to 上手（じょうず）.",
+        examples: [
+          { jp: "あなたはサッカーが上手い（うまい）です。", en: "You are good at playing soccer." },
+          { jp: "彼（かれ）は私（わたし）より日本語（にほんご）が上手い（うまい）です。", en: "His Japanese is better than mine." },
+        ],
+      },
+      {
+        n: "3",
+        title: "Clever · going well",
+        body: "Being clever, or describing something that goes well.",
+        examples: [
+          { jp: "彼（かれ）はうまいこと言（い）い訳（わけ）をした。", en: "He came up with a clever excuse." },
+          { jp: "テストがうまいことできました。", en: "The test went well." },
+          { jp: "うまくいくといいね！", en: "I hope it all works out; I wish you the best of luck!" },
+        ],
+        note: "言（い）い訳（わけ） means ‘excuse’.",
+      },
+    ],
+    customWriting: [
+      { key: "umaiSavory", term: "旨い" },
+      { key: "umaiSkillful", term: "上手い" },
+    ],
+    grammar: [
+      { form: "Dictionary", jp: "うまい", kana: "うまい", romaji: "umai", en: "is delicious / skillful" },
+      { form: "Past", jp: "うまかった", kana: "うまかった", romaji: "umakatta", en: "was delicious / skillful" },
+      { form: "Negative", jp: "うまくない", kana: "うまくない", romaji: "umakunai", en: "is not delicious / skillful" },
+      { form: "Neg. past", jp: "うまくなかった", kana: "うまくなかった", romaji: "umakunakatta", en: "was not delicious / skillful" },
+    ],
+    relationsLabel: "related noun · synonyms · common idioms",
+    relations: {
+      syn: { kind: "Related noun", term: "旨み", rj: "umami", gloss: "Savory richness or delicious flavor; the noun related to 旨い." },
+      ant: { kind: "Meaning 1 synonym", term: "美味しい", rj: "oishii", gloss: "Delicious or tasty." },
+      idiom: { term: "口がうまい", rj: "kuchi ga umai", lit: "to have a skillful mouth", gloss: "A smooth talker who is very persuasive and makes others believe too much. Mainly used negatively, such as when referring to a scammer." },
+      extra: [
+        { kind: "Meaning 2 synonym", term: "上手", rj: "jōzu", lit: "skillful", gloss: "Good at something; skillful or talented." },
+        { kind: "Idiom", term: "話がうまい", rj: "hanashi ga umai", lit: "to be good at talking", gloss: "A person who communicates well and entertains the listener. Mainly used positively, such as for a great storyteller." },
+      ],
+    },
+  };
+
+  const RELATED_ENTRIES = [KARAI_ENTRY, AMAI_KOTOBA_ENTRY, UMAI_ENTRY];
 
   /* ---------------------------------------------------------- utilities */
   const el = (tag, cls, html) => {
@@ -660,6 +742,7 @@
       <div class="ex">
         <span class="jp" lang="ja">${rubyHTML(ex.jp)}</span>
         <span class="en">${esc(ex.en)}</span>
+        ${ex.note ? `<p class="example-note"><span>Usage note</span>${rubyHTML(ex.note)}</p>` : ""}
       </div>`).join("");
   }
 
@@ -730,6 +813,7 @@
           <h4>${esc(s.title)}</h4>
           <p>${esc(s.body)}</p>
           ${examplesHTML(examples)}
+          ${s.note ? `<p class="note"><span class="note-label">Usage note</span>${rubyHTML(s.note)}</p>` : ""}
         </div>
       </div>
       ${writingAfter}`;
@@ -813,8 +897,16 @@
           </div>
         </div>
 
+        ${t.customWriting ? `
+        <div class="block">
+          <div class="block__head"><span class="step">2</span><div><h3>How to write it</h3><span class="sub">both common spellings · stroke by stroke</span></div></div>
+          <div class="custom-writing-stack">
+            ${t.customWriting.map((word) => wordWritingHTML(word.key, word.term)).join("")}
+          </div>
+        </div>` : ""}
+
         <!-- (2) HOW TO WRITE — stroke order -->
-        <div class="block" ${t.id === "umami" ? "hidden" : ""}>
+        <div class="block" ${t.id === "umami" || t.customWriting ? "hidden" : ""}>
           <div class="block__head"><span class="step">2</span><div><h3>How to write it</h3><span class="sub">${t.id === "salty" ? "塩 · 13 strokes, then 辛 · 7 strokes" : `${t.kanji.strokes} strokes · in order`}</span></div></div>
           <div class="writing-stack">
           <div class="write">
@@ -888,7 +980,7 @@
 
         <!-- (4) SYNONYM · ANTONYM · IDIOM -->
         <div class="block">
-          <div class="block__head"><span class="step">4</span><div><h3>In the wider language</h3><span class="sub">${t.id === "umami" ? "spellings · context · usage" : "synonym · antonym · idiom"}</span></div></div>
+          <div class="block__head"><span class="step">4</span><div><h3>In the wider language</h3><span class="sub">${esc(t.relationsLabel || (t.id === "umami" ? "spellings · context · usage" : "synonym · antonym · idiom"))}</span></div></div>
           <div class="relations">${relations}</div>
         </div>
 
@@ -994,6 +1086,7 @@
       </div>
       ${TASTES.map(entryHTML).join("")}
       ${entryHTML(KARAI_ENTRY)}
+      ${entryHTML(UMAI_ENTRY)}
       ${phraseEntryHTML(AMAI_KOTOBA_ENTRY)}`;
 
     const mountWritingWidget = (key, k) => {
