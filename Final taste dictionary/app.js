@@ -232,7 +232,7 @@
         examples: [
           { jp: "このレモンは酸っぱい。", en: "This lemon is sour." },
           { jp: "この梅干（うめぼ）しは酸っぱい。", en: "This pickled plum is sour." },
-          { jp: "ワインに酸っぱみがある。", en: "The wine has a sour taste." },
+          { jp: "ワインに酸味（さんみ）がある。", en: "The wine has a sour taste." },
         ],
         pills: [["Dictionary", "酸っぱい (すっぱい)"], ["Pronunciation", "suppai"], ["Smell examples", "sweat, vinegar, rotten food"]],
       },
@@ -406,22 +406,22 @@
     m1: {
       lede: "Having a hot, spicy, salty, or dry taste.",
       noteLabel: "Usage note",
-      note: "辛い can mean the tingling heat of chili peppers, but it can also describe something salty or dry, such as 辛口のお酒. When 辛い means hot or spicy, its opposite is 甘い in the sense of mild or less spicy, not necessarily sweet-tasting.",
+      note: "辛（から）い can mean the tingling heat of chili peppers, but it can also describe something salty or dry, such as 辛口（からくち）のお酒（さけ）. When 辛（から）い means hot or spicy, its opposite is 甘（あま）い in the sense of mild or less spicy, not necessarily sweet-tasting.",
       pills: [["Dictionary", "辛い (からい)"], ["Pronunciation", "karai"], ["Antonym", "甘い (あまい)"]],
     },
     senses: [
       {
         n: "2", title: "Strict · harsh",
-        body: "辛い can describe severe judgments and evaluations. The opposite in this sense is 甘い, meaning lenient or easy.",
+        body: "辛（から）い can describe severe judgments and evaluations. The opposite in this sense is 甘（あま）い, meaning lenient or easy.",
         examples: [
-          { jp: "あの先生は採点が辛い。", en: "That teacher grades strictly." },
-          { jp: "この人の意見は辛い。", en: "That person's opinion is harsh." },
+          { jp: "あの先生（せんせい）は採点（さいてん）が辛（から）い。", en: "That teacher grades strictly." },
+          { jp: "この人（ひと）の意見（いけん）は辛（から）い。", en: "That person's opinion is harsh." },
         ],
       },
       {
         n: "3", marker: "!", label: "CAREFUL", careful: true, title: "からい vs つらい",
-        body: "辛い can also be read つらい, but the meaning changes. つらい describes mental or physical suffering, or difficulty. Since Japanese dictionaries are searched by hiragana pronunciation rather than kanji, this entry focuses on からい.",
-        ex: { jp: "辛い（からい） / 辛い（つらい）", en: "Same kanji, different readings and meanings." },
+        body: "辛（から）い can also be read つらい, but the meaning changes. つらい describes mental or physical suffering, or difficulty. Since Japanese dictionaries are searched by hiragana pronunciation rather than kanji, this entry focuses on からい.",
+        ex: { jp: "辛（から）い / 辛（つら）い", en: "Same kanji, different readings and meanings." },
       },
     ],
     grammar: [
@@ -431,12 +431,12 @@
       { form: "Neg. past", jp: "辛くなかった", kana: "からくなかった", romaji: "karakunakatta", en: "was not spicy / salty / dry" },
     ],
     relations: {
-      syn: { term: "辛口", rj: "karakuchi", gloss: "Dry, spicy, or critical depending on context, as in 辛口のお酒 or 辛口のレビュー." },
-      ant: { term: "甘い", rj: "amai", gloss: "Sweet, mild, or lenient depending on context." },
-      idiom: { term: "辛口のレビュー", rj: "karakuchi no rebyū", lit: "a dry/spicy review", gloss: "A harsh review or a critical opinion." },
+      syn: { term: "辛口（からくち）", rj: "karakuchi", gloss: "Dry, spicy, or critical depending on context, as in 辛口のお酒 or 辛口のレビュー." },
+      ant: { term: "甘（あま）い", rj: "amai", gloss: "Sweet, mild, or lenient depending on context." },
+      idiom: { term: "辛口（からくち）のレビュー", rj: "karakuchi no rebyū", lit: "a dry/spicy review", gloss: "A harsh review or a critical opinion." },
       extra: [
-        { kind: "Scientific taste noun", term: "辛味", rj: "karami", lit: "spiciness", gloss: "Spiciness; the technical noun for a pungent or spicy sensation." },
-        { kind: "Expression", term: "辛口カレー", rj: "karakuchi karē", lit: "spicy curry", gloss: "Hot or spicy curry, opposite of 甘口 curry, which is mild or not spicy." },
+        { kind: "Scientific taste noun", term: "辛味（からみ）", rj: "karami", lit: "spiciness", gloss: "Spiciness; the technical noun for a pungent or spicy sensation." },
+        { kind: "Expression", term: "辛口（からくち）カレー", rj: "karakuchi karē", lit: "spicy curry", gloss: "Hot or spicy curry, opposite of 甘口 curry, which is mild or not spicy." },
       ],
     },
   };
@@ -531,7 +531,7 @@
       ant: { kind: "Meaning 1 synonym", term: "美味しい", rj: "oishii", gloss: "Delicious or tasty." },
       idiom: { term: "口がうまい", rj: "kuchi ga umai", lit: "to have a skillful mouth", gloss: "A smooth talker who is very persuasive and makes others believe too much. Mainly used negatively, such as when referring to a scammer." },
       extra: [
-        { kind: "Meaning 2 synonym", term: "上手", rj: "jōzu", lit: "skillful", gloss: "Good at something; skillful or talented." },
+        { kind: "Meaning 2 synonym", term: "上手い", rj: "うまい · umai", lit: "skillful", gloss: "Good at something; skillful or talented." },
         { kind: "Idiom", term: "話がうまい", rj: "hanashi ga umai", lit: "to be good at talking", gloss: "A person who communicates well and entertains the listener. Mainly used positively, such as for a great storyteller." },
       ],
     },
@@ -794,7 +794,7 @@
   function entryHTML(t) {
     const entryWord = t.id === "salty"
       ? `<span>塩</span><a class="entry__word-link" href="#karai" data-related-jump="karai" data-related-from="salty" aria-label="Open the dictionary entry for 辛い, read からい"><strong>辛い</strong></a>`
-      : esc(t.jp);
+      : t.id === "karai" ? rubyHTML("辛（から）い") : esc(t.jp);
     const grammar = t.grammar.map((g) => `
       <article class="gcard reveal" data-d="${(t.grammar.indexOf(g) % 4) + 1}">
         <div class="form">${esc(g.form)}</div>
@@ -812,7 +812,7 @@
         <div>
           <span class="sense__label">${esc(s.label || `Meaning ${s.n}`)}</span>
           <h4>${esc(s.title)}</h4>
-          <p>${esc(s.body)}</p>
+          <p>${rubyHTML(s.body)}</p>
           ${examplesHTML(examples)}
           ${s.note ? `<p class="note"><span class="note-label">Usage note</span>${rubyHTML(s.note)}</p>` : ""}
         </div>
@@ -824,7 +824,7 @@
     const extraRelations = (r.extra || []).map((x, i) => {
       const inner = `<div class="rcard__inner">
         <span class="kind">${esc(x.kind || "Expression")}</span>
-        <div class="term" lang="ja">${esc(x.term)}</div>
+        <div class="term" lang="ja">${rubyHTML(x.term)}</div>
         <div class="rj">${esc(x.rj)}</div>
         ${x.lit ? `<p class="lit">&ldquo;${esc(x.lit)}&rdquo;</p>` : ""}
         <p class="gloss">${esc(x.gloss)}</p>
@@ -837,7 +837,7 @@
     const relations = `
       <article class="rcard reveal" data-d="1"><div class="rcard__inner">
         <span class="kind">${esc(r.syn.kind || "Synonym")}</span>
-        <div class="term" lang="ja">${esc(r.syn.term)}</div>
+        <div class="term" lang="ja">${rubyHTML(r.syn.term)}</div>
         <div class="rj">${esc(r.syn.rj)}</div>
         <p class="gloss">${esc(r.syn.gloss)}</p>
       </div></article>
@@ -845,13 +845,13 @@
         <span class="kind">${esc(r.ant.kind || "Antonym")}</span>
         ${t.id === "sweet"
           ? `<a class="term relation-word-link" lang="ja" href="#karai" data-related-jump="karai" data-related-from="sweet" aria-label="Open the dictionary entry for 辛い, read からい">${esc(r.ant.term)}</a>`
-          : `<div class="term" lang="ja">${esc(r.ant.term)}</div>`}
+          : `<div class="term" lang="ja">${rubyHTML(r.ant.term)}</div>`}
         <div class="rj">${esc(r.ant.rj)}</div>
         <p class="gloss">${esc(r.ant.gloss)}</p>
       </div></article>
       <article class="rcard idiom reveal" data-d="3"><div class="rcard__inner">
         <span class="kind">${esc(r.idiom.kind || "Idiom · 慣用句")}</span>
-        <div class="term" lang="ja">${esc(r.idiom.term)}</div>
+        <div class="term" lang="ja">${rubyHTML(r.idiom.term)}</div>
         <div class="rj">${esc(r.idiom.rj)}</div>
         <p class="lit">&ldquo;${esc(r.idiom.lit)}&rdquo;</p>
         <p class="gloss">${esc(r.idiom.gloss)}</p>
