@@ -1057,7 +1057,36 @@
   }
 
   /* ================================================================ MOUNT */
+  function initTheme() {
+    const button = document.getElementById("themeToggle");
+    if (!button) return;
+    const root = document.documentElement;
+    const media = window.matchMedia("(prefers-color-scheme: dark)");
+
+    const apply = (theme, persist = false) => {
+      const isDark = theme === "dark";
+      root.dataset.theme = isDark ? "dark" : "light";
+      root.style.colorScheme = isDark ? "dark" : "light";
+      button.setAttribute("aria-pressed", String(isDark));
+      const label = isDark ? "Use light mode" : "Use dark mode";
+      button.setAttribute("aria-label", label);
+      button.title = label;
+      if (persist) {
+        try { localStorage.setItem("taste-dictionary-theme", root.dataset.theme); } catch (_) {}
+      }
+    };
+
+    apply(root.dataset.theme || (media.matches ? "dark" : "light"));
+    button.addEventListener("click", () => apply(root.dataset.theme === "dark" ? "light" : "dark", true));
+    media.addEventListener?.("change", (event) => {
+      try {
+        if (!localStorage.getItem("taste-dictionary-theme")) apply(event.matches ? "dark" : "light");
+      } catch (_) {}
+    });
+  }
+
   function mount() {
+    initTheme();
     // footer taste list
     const footTaste = document.getElementById("footTaste");
 
