@@ -407,6 +407,20 @@ rt {
   color: var(--ink-soft); font-size: 0.86rem; line-height: 1.65;
 }
 .method li + li { margin-top: 0.3rem; }
+.method__chart {
+  width: min(calc(100vw - (2 * var(--gutter))), 1080px);
+  margin: clamp(2rem, 5vw, 3.5rem) 0 0 50%;
+  transform: translateX(-50%);
+  overflow: hidden; border: 1px solid var(--hairline); border-radius: 8px;
+  background: #fff; box-shadow: 0 28px 60px -42px rgba(33,28,22,.5);
+}
+.method__chart a { display: block; cursor: zoom-in; }
+.method__chart img { width: 100%; height: auto; }
+:root[data-theme="dark"] .method__chart {
+  border-color: rgba(245,240,230,.2);
+  box-shadow: 0 28px 60px -38px rgba(0,0,0,.9);
+}
+:root[data-theme="dark"] .method__chart img { filter: brightness(.82) contrast(.98); }
 
 /* ============================================================== ENTRIES */
 .entries {
