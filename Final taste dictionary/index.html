@@ -20,14 +20,17 @@
 <link rel="preconnect" href="https://fonts.googleapis.com" />
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
 <link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,300..600;1,9..144,300..560&family=Geist:wght@300..600&family=Geist+Mono:wght@400..600&family=Shippori+Mincho:wght@500;600;700;800&family=Zen+Kaku+Gothic+New:wght@400;500;700&display=swap" rel="stylesheet" />
-<link rel="stylesheet" href="styles.css?v=category-chart" />
+<link rel="stylesheet" href="styles.css?v=frequency-tab" />
 <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'%3E%3Crect width='100' height='100' rx='22' fill='%23211c16'/%3E%3Ctext x='50' y='72' font-size='62' text-anchor='middle' fill='%23faf6ec' font-family='serif'%3E味%3C/text%3E%3C/svg%3E" /></head>
 <body>
 <div class="grain" aria-hidden="true"></div>
-<button class="theme-toggle" id="themeToggle" type="button" aria-label="Use dark mode" aria-pressed="false" title="Use dark mode">
-  <svg class="theme-toggle__moon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79Z"/></svg>
-  <svg class="theme-toggle__sun" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="12" r="4"/><path d="M12 2v2M12 20v2M4.93 4.93l1.42 1.42M17.66 17.66l1.41 1.41M2 12h2M20 12h2M4.93 19.07l1.42-1.42M17.66 6.34l1.41-1.41"/></svg>
-</button>
+<div class="site-actions" aria-label="Site controls">
+  <button class="frequency-tab" id="frequencyTab" type="button" aria-controls="frequency" aria-expanded="false">Frequency</button>
+  <button class="theme-toggle" id="themeToggle" type="button" aria-label="Use dark mode" aria-pressed="false" title="Use dark mode">
+    <svg class="theme-toggle__moon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79Z"/></svg>
+    <svg class="theme-toggle__sun" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="12" r="4"/><path d="M12 2v2M12 20v2M4.93 4.93l1.42 1.42M17.66 17.66l1.41 1.41M2 12h2M20 12h2M4.93 19.07l1.42-1.42M17.66 6.34l1.41-1.41"/></svg>
+  </button>
+</div>
 
 <!-- ============================================================ HERO -->
 <header class="hero" id="top">
@@ -65,14 +68,53 @@
         <li>Furigana is provided for advanced kanji that are not taught in the early grades of elementary school.</li>
         <li>The example sentences include a wider variety of words and expressions.</li>
       </ol>
-      <figure class="method__chart">
-        <a href="assets/sweet-category-distribution.png" target="_blank" rel="noopener" aria-label="Open the sweet category distribution chart at full size">
-          <img src="assets/sweet-category-distribution.png" width="2044" height="1330" loading="lazy" decoding="async" alt="Pie chart showing the distribution of meanings for sweet: sweet taste 42.1%, naive or unrealistic 17.1%, insufficient rigor or sloppy 14.5%, romantic or sentimental sweetness 10.5%, sweet smell or fragrance 6.6%, lenient or indulgent 6.6%, and sweet benefits or easy gains 2.6%." />
-        </a>
-      </figure>
     </section>
   </div>
 </header>
+
+<!-- ======================================================== FREQUENCY -->
+<section class="frequency-page" id="frequency" hidden aria-labelledby="frequency-title">
+  <div class="wrap">
+    <div class="frequency-hero">
+      <span class="eyebrow">Corpus frequency</span>
+      <h2 id="frequency-title">Meaning distribution charts</h2>
+      <p>Category distributions from the examples used to build dictionary meanings.</p>
+      <button class="frequency-back" id="frequencyBack" type="button">Back to dictionary</button>
+    </div>
+    <div class="frequency-grid">
+      <figure class="frequency-card">
+        <figcaption>Sweet <span lang="ja">甘い</span></figcaption>
+        <a href="assets/sweet-category-distribution.png" target="_blank" rel="noopener" aria-label="Open the sweet frequency chart at full size">
+          <img src="assets/sweet-category-distribution.png" width="2044" height="1330" loading="lazy" decoding="async" alt="Pie chart showing the distribution of meanings for sweet: sweet taste 42.1%, naive or unrealistic 17.1%, insufficient rigor or sloppy 14.5%, romantic or sentimental sweetness 10.5%, sweet smell or fragrance 6.6%, lenient or indulgent 6.6%, and sweet benefits or easy gains 2.6%." />
+        </a>
+      </figure>
+      <figure class="frequency-card">
+        <figcaption>Bitter <span lang="ja">苦い</span></figcaption>
+        <a href="assets/bitter-frequency.png" target="_blank" rel="noopener" aria-label="Open the bitter frequency chart at full size">
+          <img src="assets/bitter-frequency.png" width="1768" height="1130" loading="lazy" decoding="async" alt="Pie chart showing meanings of bitter in the provided examples: literal bitter taste 46.4%, figurative unpleasant feeling, experience, or memory 50.0%, and facial expression 3.6%." />
+        </a>
+      </figure>
+      <figure class="frequency-card">
+        <figcaption>Salty <span lang="ja">塩辛い</span></figcaption>
+        <a href="assets/shiokarai-frequency.png" target="_blank" rel="noopener" aria-label="Open the shiokarai frequency chart at full size">
+          <img src="assets/shiokarai-frequency.png" width="2336" height="1582" loading="lazy" decoding="async" alt="Pie chart showing uses of shiokarai in the provided examples: specific food or drink saltiness 71.3%, general dietary or definition use 14.8%, natural body or mineral saltiness 11.3%, and figurative or metaphorical use 2.6%." />
+        </a>
+      </figure>
+      <figure class="frequency-card">
+        <figcaption>Salty <span lang="ja">しょっぱい</span></figcaption>
+        <a href="assets/shoppai-frequency.png" target="_blank" rel="noopener" aria-label="Open the shoppai frequency chart at full size">
+          <img src="assets/shoppai-frequency.png" width="1538" height="1572" loading="lazy" decoding="async" alt="Pie chart showing dictionary-level categories of shoppai: taste salty or salt-like 88.1%, figurative or slang use 7.5%, and unclear or noisy examples 4.5%." />
+        </a>
+      </figure>
+      <figure class="frequency-card">
+        <figcaption>Good / skillful <span lang="ja">うまい</span></figcaption>
+        <a href="assets/umai-frequency.png" target="_blank" rel="noopener" aria-label="Open the umai frequency chart at full size">
+          <img src="assets/umai-frequency.png" width="1790" height="1198" loading="lazy" decoding="async" alt="Pie chart showing categories of umai: delicious or tastes good 50%, skillful or good at something 22%, clever or well expressed 12%, goes well or succeeds 8%, suspiciously good or smooth talk 5%, and name, slogan, or noise 3%." />
+        </a>
+      </figure>
+    </div>
+  </div>
+</section>
 
 <!-- ========================================================= ENTRIES -->
 <main class="entries" id="entries" aria-live="polite"></main>
@@ -99,7 +141,7 @@
 <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/ScrollTrigger.min.js"></script>
 <!-- app.js first so entries render immediately, before the heavier tongue
      assets download (deferred scripts run in document order). -->
-<script src="app.js?v=night-mode" defer></script>
+<script src="app.js?v=frequency-tab" defer></script>
 <!-- Three.js r136 — the last UMD (non-module) build, so the interactive tongue
      loads from file:// with no server, exactly like the GSAP scripts above. -->
 <script src="https://unpkg.com/three@0.136.0/build/three.min.js" defer></script>

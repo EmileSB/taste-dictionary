@@ -1085,8 +1085,34 @@
     });
   }
 
+  function initFrequencyTab() {
+    const tab = document.getElementById("frequencyTab");
+    const page = document.getElementById("frequency");
+    const back = document.getElementById("frequencyBack");
+    if (!tab || !page || !back) return;
+
+    const show = (active, updateHash = true) => {
+      document.body.classList.toggle("is-frequency", active);
+      page.hidden = !active;
+      tab.classList.toggle("is-active", active);
+      tab.setAttribute("aria-expanded", String(active));
+      if (active) {
+        window.scrollTo({ top: 0, behavior: "smooth" });
+        if (updateHash && location.hash !== "#frequency") history.pushState(null, "", "#frequency");
+      } else if (updateHash && location.hash === "#frequency") {
+        history.pushState(null, "", location.pathname + location.search);
+      }
+    };
+
+    tab.addEventListener("click", () => show(!document.body.classList.contains("is-frequency")));
+    back.addEventListener("click", () => show(false));
+    window.addEventListener("hashchange", () => show(location.hash === "#frequency", false));
+    show(location.hash === "#frequency", false);
+  }
+
   function mount() {
     initTheme();
+    initFrequencyTab();
     // footer taste list
     const footTaste = document.getElementById("footTaste");
 
