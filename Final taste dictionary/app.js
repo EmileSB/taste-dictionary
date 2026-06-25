@@ -1119,9 +1119,11 @@
     TASTES.forEach((t) => {
       // footer
       const f = el("a");
-      f.href = `#${t.id}`;
+      const footerEntry = t.id === "umami" ? UMAI_ENTRY : t;
+      f.href = `#${footerEntry.id}`;
       f.setAttribute("data-taste", t.id);
-      f.innerHTML = `${esc(t.en)} <span lang="ja">${esc(t.jp)} · ${esc(t.romaji)}</span>`;
+      f.setAttribute("data-jump", footerEntry.id);
+      f.innerHTML = `${esc(footerEntry.id === "umai" ? "Umai" : footerEntry.en)} <span lang="ja">${esc(footerEntry.id === "umai" ? "うまい" : footerEntry.jp)} · ${esc(footerEntry.romaji)}</span>`;
       footTaste.appendChild(f);
     });
 
@@ -1418,7 +1420,7 @@
         resultsSummary.textContent = "Type in the search field to open a dictionary page.";
       } else if (results.length === 0) {
         resultsTitle.textContent = "No entry found";
-        resultsSummary.textContent = `No dictionary entry found for "${q}". Try sweet, sour, bitter, salty, umami or うまい.`;
+        resultsSummary.textContent = `No dictionary entry found for "${q}". Try sweet, sour, bitter, salty, umai or うまい.`;
       } else {
         const tasteOnly = results.every((result) => TASTES.some((taste) => taste.id === result.id));
         const label = tasteOnly ? (results.length === 1 ? "taste" : "tastes") : (results.length === 1 ? "entry" : "entries");

@@ -27,11 +27,11 @@
      root=+5.5) · Z dorsal(top)=+ . Positions are seed points on the dorsal
      plane; the true surface point + normal is found by ray-casting down. */
   const ZONES = [
-    { id: "sweet",  char: "甘", en: "Sweet", seed: [ 0.0, -4.4] },
-    { id: "salty",  char: "塩", en: "Salty", seed: [ 1.75, -1.6] },
-    { id: "umami",  char: "旨", en: "Umami", seed: [ 0.0,  0.3] },
-    { id: "sour",   char: "酸", en: "Sour",  seed: [-1.75,  2.0] },
-    { id: "bitter", char: "苦", en: "Bitter",seed: [ 0.0,  4.1] },
+    { id: "sweet",  char: "甘味", en: "Sweet", seed: [ 0.0, -4.4] },
+    { id: "salty",  char: "塩味", en: "Salty", seed: [ 1.75, -1.6] },
+    { id: "umami",  char: "うま味", en: "Umami", seed: [ 0.0,  0.3] },
+    { id: "sour",   char: "酸味", en: "Sour",  seed: [-1.75,  2.0] },
+    { id: "bitter", char: "苦味", en: "Bitter",seed: [ 0.0,  4.1] },
   ];
 
   /* each zone glows in its own taste accent, so the whole map reads in colour
@@ -335,7 +335,7 @@
       label.dataset.zone = z.id;
       label.innerHTML =
         `<button type="button" class="tongue-label__main" aria-label="Spotlight the ${z.en} taste zone">` +
-          `<b lang="ja">${z.char}</b><span>${z.en}</span>` +
+          `<b lang="ja">${z.char}</b>` +
         `</button>` +
         `<a class="tongue-label__go" data-jump="${z.id}" href="#${z.id}">${z.en} entry &rsaquo;</a>`;
       overlay.appendChild(label);
